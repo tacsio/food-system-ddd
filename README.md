@@ -9,7 +9,7 @@
 
 ## :package: System Architecture
 
-![rabbitmq](.assets/foog-system-arch.png)
+![arch](.assets/food-system-arch.png)
 
 #### :bangbang: Attention
 
@@ -26,3 +26,7 @@
 ```bash
 mvn com.github.ferstl:depgraph-maven-plugin:aggregate -DcreateImage=true -DclasspathScope=compile -DshowGroupIds -DshowVersions "-Dincludes=com.food.ordering.system*:*"
 ```
+
+### :package: Order Service Domain
+
+![order-service](.assets/order-service-domain-logic.png)
