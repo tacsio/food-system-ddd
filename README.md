@@ -13,7 +13,7 @@
 
 #### :bangbang: Attention
 
-> **order-omain-core** should not have any dependencies. 
+> **order-omain-core** should not have any dependencies.
 > That component should be the most stable component in the system
 > since it have the business logic.
 
@@ -30,3 +30,11 @@ mvn com.github.ferstl:depgraph-maven-plugin:aggregate -DcreateImage=true -Dclass
 ### :package: Order Service Domain
 
 ![order-service](.assets/order-service-domain-logic.png)
+
+#### :arrows_counterclockwise: Order Status Transitions
+
+![transitions](.assets/order-state-transitions.png)
+
+#### :arrows_counterclockwise: Order Request Simple Flow
+
+![flow](.assets/order-request-simple-flow.png)

@@ -5,6 +5,9 @@ import java.math.MathContext;
 import java.math.RoundingMode;
 
 public record Money(BigDecimal amount) {
+
+    public static final Money ZERO = new Money(BigDecimal.ZERO);
+
     private static final MathContext mathContext = new MathContext(2, RoundingMode.HALF_EVEN);
 
     public boolean isGreaterThanZero() {
