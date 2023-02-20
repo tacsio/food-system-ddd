@@ -18,7 +18,7 @@ import java.util.function.Function;
 import static java.util.stream.Collectors.toMap;
 
 @Slf4j
-public class OrderDomainServiceImpl implements OrderDomainService {
+class OrderDomainServiceImpl implements OrderDomainService {
 
     private static ZoneId UTC = ZoneId.of("UTC");
 

@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public record OrderItem(@NotNull UUID id,
+public record OrderItem(@NotNull UUID productId,
                         @NotNull Integer quantity,
                         @NotNull BigDecimal price,
                         @NotNull BigDecimal subTotal) {
