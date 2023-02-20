@@ -44,7 +44,7 @@ public class OrderCreateHelper {
 
         OrderCreatedEvent orderCreatedEvent = orderDomainService.validateAndInitializeOrder(order, restaurant);
         saveOrder(order);
-        log.info("Order is created with id: {}", orderCreatedEvent.order().getId());
+        log.info("Order is created with id: {}", orderCreatedEvent.order().getId().value());
 
         return orderCreatedEvent;
     }
@@ -73,7 +73,7 @@ public class OrderCreateHelper {
             log.error("Could not save order.");
             throw new DomainException("Could not save order.");
         }
-        log.info("Order is saved with id: {}", orderResult.getId());
+        log.info("Order is saved with id: {}", orderResult.getId().value());
         return orderResult;
     }
 }
