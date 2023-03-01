@@ -1,8 +1,9 @@
 package com.food.ordering.system.order.service.dataaccess.order.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -14,7 +15,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderItemEntity {
+public class OrderItemEntity implements Serializable {
 
     @Id
     private Long id;

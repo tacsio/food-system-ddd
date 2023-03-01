@@ -1,7 +1,7 @@
 package com.food.ordering.system.kafka.producer.service;
 
 import com.food.ordering.system.kafka.producer.exception.KafkaProduceException;
-import jakarta.annotation.PreDestroy;
+import javax.annotation.PreDestroy;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.avro.specific.SpecificRecordBase;
 import org.springframework.kafka.KafkaException;

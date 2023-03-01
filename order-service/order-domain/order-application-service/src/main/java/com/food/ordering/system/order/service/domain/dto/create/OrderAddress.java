@@ -1,7 +1,8 @@
 package com.food.ordering.system.order.service.domain.dto.create;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.NotBlank;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotBlank;
 
 public record OrderAddress(
         @NotBlank @Max(50) String street,

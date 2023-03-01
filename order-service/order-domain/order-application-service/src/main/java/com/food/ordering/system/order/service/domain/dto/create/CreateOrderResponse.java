@@ -1,9 +1,9 @@
 package com.food.ordering.system.order.service.domain.dto.create;
 
 import com.food.ordering.system.domain.valueobject.OrderStatus;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 public record CreateOrderResponse(@NotNull UUID orderTrackingId,

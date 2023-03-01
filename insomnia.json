@@ -1,0 +1,113 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2023-03-01T02:25:27.559Z",
+  "__export_source": "insomnia.desktop.app:v2021.7.2",
+  "resources": [
+    {
+      "_id": "req_bac88af4af214aa69d494c224db97417",
+      "parentId": "wrk_160e2fd8bfc34940beae2c11af9afc62",
+      "modified": 1677637512831,
+      "created": 1677637509599,
+      "url": "",
+      "name": "customer",
+      "description": "",
+      "method": "GET",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"customerId\": \"d215b5f8-0249-4dc5-89a3-51fd148cfb41\",\n  \"username\": \"user_1\",\n  \"firstName\": \"First\",\n  \"lastName\": \"User\"\n}\n"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1677637509599,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_160e2fd8bfc34940beae2c11af9afc62",
+      "parentId": null,
+      "modified": 1677636890552,
+      "created": 1677636890552,
+      "name": "udemy-ddd",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_7812fa364edb4ae1b08625f7bfa8b6a6",
+      "parentId": "wrk_160e2fd8bfc34940beae2c11af9afc62",
+      "modified": 1677637157310,
+      "created": 1677636897651,
+      "url": "http://localhost:8181/orders",
+      "name": "create-order",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"customerId\": \"d215b5f8-0249-4dc5-89a3-51fd148cfb41\",\n  \"restaurantId\": \"d215b5f8-0249-4dc5-89a3-51fd148cfb45\",\n  \"address\": {\n    \"street\": \"street_1\",\n    \"postalCode\": \"1000AB\",\n    \"city\": \"Amsterdam\"\n  },\n  \"price\": 200.00,\n  \"items\": [\n    {\n      \"productId\": \"d215b5f8-0249-4dc5-89a3-51fd148cfb48\",\n      \"quantity\": 1,\n      \"price\": 50.00,\n      \"subTotal\": 50.00\n    },\n    {\n      \"productId\": \"d215b5f8-0249-4dc5-89a3-51fd148cfb48\",\n      \"quantity\": 3,\n      \"price\": 50.00,\n      \"subTotal\": 150.00\n    }\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_0f8a5b8f419b494e8f525ab84b456f5b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1677636897651,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_2beec47e6253be13f95c91a17a20820aaa402048",
+      "parentId": "wrk_160e2fd8bfc34940beae2c11af9afc62",
+      "modified": 1677636890566,
+      "created": 1677636890566,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1677636890566,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_2beec47e6253be13f95c91a17a20820aaa402048",
+      "parentId": "wrk_160e2fd8bfc34940beae2c11af9afc62",
+      "modified": 1677636890574,
+      "created": 1677636890574,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_cb5ee539d4f54e9cb763b6608aa611df",
+      "parentId": "wrk_160e2fd8bfc34940beae2c11af9afc62",
+      "modified": 1677636890557,
+      "created": 1677636890557,
+      "fileName": "udemy-ddd",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    }
+  ]
+}
