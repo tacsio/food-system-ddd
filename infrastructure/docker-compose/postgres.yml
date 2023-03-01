@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    ports:
+      - '5432:5432'
+    volumes:
+      - "./volumes/postgres/init/01-restaurant-schema.sql:/docker-entrypoint-initdb.d/01-restaurant-schema.sql"
+      - "./volumes/postgres/init/02-restaurant-data.sql:/docker-entrypoint-initdb.d/02-restaurant-data.sql"
+      - "./volumes/postgres:/var/lib/postgresql"
