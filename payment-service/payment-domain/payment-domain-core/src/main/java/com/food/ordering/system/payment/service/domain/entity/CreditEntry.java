@@ -24,7 +24,7 @@ public class CreditEntry extends BaseEntity<CreditEntryId> {
         totalCreditAmount = totalCreditAmount.subtract(amount);
     }
 
-    public Builder builder() {
+    public static Builder builder() {
         return new Builder();
     }
 
@@ -36,7 +36,7 @@ public class CreditEntry extends BaseEntity<CreditEntryId> {
         return totalCreditAmount;
     }
 
-    private static final class Builder {
+    public static final class Builder {
         private CreditEntryId id;
         private CustomerId customerId;
         private Money totalCreditAmount;

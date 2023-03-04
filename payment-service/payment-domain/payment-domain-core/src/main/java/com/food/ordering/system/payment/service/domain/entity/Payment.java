@@ -70,7 +70,7 @@ public class Payment extends AggregateRoot<PaymentId> {
         return createdAt;
     }
 
-    private static final class Builder {
+    public static final class Builder {
         private PaymentId id;
         private OrderId orderId;
         private CustomerId customerId;

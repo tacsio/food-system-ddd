@@ -10,17 +10,15 @@ import com.food.ordering.system.order.service.domain.event.OrderPaidEvent;
 import com.food.ordering.system.order.service.domain.exception.OrderDomainException;
 import lombok.extern.slf4j.Slf4j;
 
-import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.function.Function;
 
+import static com.food.ordering.system.domain.DomainConstants.UTC;
 import static java.util.stream.Collectors.toMap;
 
 @Slf4j
 class OrderDomainServiceImpl implements OrderDomainService {
-
-    private static ZoneId UTC = ZoneId.of("UTC");
 
     @Override
     public OrderCreatedEvent validateAndInitializeOrder(Order order, Restaurant restaurant) {
