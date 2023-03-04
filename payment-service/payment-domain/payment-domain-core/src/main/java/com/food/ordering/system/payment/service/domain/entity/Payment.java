@@ -102,6 +102,11 @@ public class Payment extends AggregateRoot<PaymentId> {
             return this;
         }
 
+        public Builder createdAt(ZonedDateTime val) {
+            this.createdAt = val;
+            return this;
+        }
+
         public Builder paymentStatus(PaymentStatus val) {
             this.paymentStatus = val;
             return this;
