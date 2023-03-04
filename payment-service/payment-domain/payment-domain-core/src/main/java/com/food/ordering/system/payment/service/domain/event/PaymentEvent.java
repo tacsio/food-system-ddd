@@ -11,4 +11,6 @@ public interface PaymentEvent {
     ZonedDateTime createdAt();
 
     List<String> failureMessages();
+
+    void fire();
 }
