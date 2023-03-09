@@ -23,6 +23,7 @@
         <module>customer-service</module>
         <module>payment-service</module>
         <module>restaurant-service</module>
+        <module>common/common-dataaccess</module>
     </modules>
 
     <properties>
@@ -109,6 +110,11 @@
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
                 <artifactId>common-application</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
+                <artifactId>common-dataaccess</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

@@ -1,11 +1,11 @@
-package com.food.ordering.system.order.service.dataaccess.restaurant.entity;
+package com.food.ordering.system.dataaccess.restaurant.entity;
+
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
-import lombok.*;
-
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -29,6 +29,7 @@ public class RestaurantEntity {
     private boolean restaurantActive;
     private String productName;
     private BigDecimal productPrice;
+    private boolean productAvailable;
 
     @Override
     public boolean equals(Object o) {

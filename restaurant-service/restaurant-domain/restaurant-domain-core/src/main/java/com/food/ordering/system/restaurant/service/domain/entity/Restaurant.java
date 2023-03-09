@@ -44,7 +44,7 @@ public class Restaurant extends BaseEntity<RestaurantId> {
                 .id(new OrderApprovalId(UUID.randomUUID()))
                 .restaurantId(this.getId())
                 .orderId(this.orderDetail.getId())
-                .orderApprovalStatus(orderApprovalStatus)
+                .approvalStatus(orderApprovalStatus)
                 .build();
     }
 
