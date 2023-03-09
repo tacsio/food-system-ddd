@@ -14,8 +14,8 @@
     <groupId>com.food.ordering.system</groupId>
     <artifactId>food-ordering-system</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <packaging>pom</packaging>
+
     <modules>
         <module>order-service</module>
         <module>common</module>
@@ -23,12 +23,11 @@
         <module>customer-service</module>
         <module>payment-service</module>
         <module>restaurant-service</module>
-        <module>common/common-dataaccess</module>
     </modules>
 
     <properties>
-        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
-        <mockito-core.version>4.8.1</mockito-core.version>
+        <maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>
+        <mockito-core.version>4.3.1</mockito-core.version>
         <spring-kafka.version>2.8.2</spring-kafka.version>
         <kafka-avro-serializer.version>7.0.1</kafka-avro-serializer.version>
         <avro.version>1.11.0</avro.version>
@@ -84,6 +83,11 @@
             </dependency>
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
+                <artifactId>restaurant-domain-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
                 <artifactId>restaurant-application-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -95,11 +99,6 @@
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
                 <artifactId>restaurant-messaging</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.food.ordering.system</groupId>
-                <artifactId>restaurant-domain-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -140,7 +139,7 @@
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
-                <version>${mockito-core.version}</version>
+                <version>${mockito.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
