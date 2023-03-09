@@ -28,6 +28,10 @@ public class Product extends BaseEntity<ProductId> {
         this.available = builder.available;
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public static final class Builder {
         private ProductId id;
         private String name;

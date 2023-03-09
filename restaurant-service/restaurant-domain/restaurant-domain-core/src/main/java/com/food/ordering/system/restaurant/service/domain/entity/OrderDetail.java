@@ -19,6 +19,10 @@ public class OrderDetail extends BaseEntity<OrderId> {
         this.products = builder.products;
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public OrderStatus getOrderStatus() {
         return orderStatus;
     }

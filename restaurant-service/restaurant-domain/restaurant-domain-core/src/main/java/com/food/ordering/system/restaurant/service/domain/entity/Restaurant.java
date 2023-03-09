@@ -59,6 +59,10 @@ public class Restaurant extends BaseEntity<RestaurantId> {
         this.orderDetail = builder.orderDetail;
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public OrderApproval getOrderApproval() {
         return orderApproval;
     }

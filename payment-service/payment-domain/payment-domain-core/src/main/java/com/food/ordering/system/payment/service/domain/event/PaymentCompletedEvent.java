@@ -11,7 +11,7 @@ import java.util.List;
 public record PaymentCompletedEvent(Payment payment,
                                     ZonedDateTime createdAt,
                                     DomainEventPublisher<PaymentCompletedEvent> paymentCompletedEventDomainEventPublisher)
-        implements DomainEvent<Payment>, PaymentEvent {
+        implements PaymentEvent {
 
     @Override
     public List<String> failureMessages() {
