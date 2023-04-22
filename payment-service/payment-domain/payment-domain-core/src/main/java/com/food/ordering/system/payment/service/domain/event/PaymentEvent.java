@@ -12,6 +12,4 @@ public interface PaymentEvent extends DomainEvent<Payment> {
     ZonedDateTime createdAt();
 
     List<String> failureMessages();
-
-    void fire();
 }

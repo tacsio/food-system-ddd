@@ -10,9 +10,15 @@
     </parent>
 
     <artifactId>restaurant-domain</artifactId>
+    <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <modules>
+        <module>restaurant-domain-core</module>
+        <module>restaurant-application-service</module>
+    </modules>
 
 </project>

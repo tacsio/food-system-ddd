@@ -15,7 +15,7 @@ import java.util.List;
 @Slf4j
 public class RestaurantDomainServiceImpl implements RestaurantDomainService {
     @Override
-    public OrderApprovalEvent validateOrder(Restaurant restaurant, List<String> failureMessages, DomainEventPublisher<OrderApprovedEvent> orderApprovedEventDomainEventPublisher, DomainEventPublisher<OrderRejectedEvent> orderRejectedEventDomainEventPublisher) {
+    public OrderApprovalEvent validateOrder(Restaurant restaurant, List<String> failureMessages) {
         var orderId = restaurant.getOrderDetail().getId().value();
 
         log.info("Validating order with id: {}", orderId);
