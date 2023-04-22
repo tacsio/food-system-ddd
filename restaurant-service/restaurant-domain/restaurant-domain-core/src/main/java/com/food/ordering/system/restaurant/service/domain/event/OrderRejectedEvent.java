@@ -10,11 +10,6 @@ import java.util.List;
 public record OrderRejectedEvent(OrderApproval orderApproval,
                                  RestaurantId restaurantId,
                                  List<String> failureMessages,
-                                 ZonedDateTime createdAt,
-                                 DomainEventPublisher<OrderRejectedEvent> orderRejectedEventDomainEventPublisher) implements OrderApprovalEvent {
+                                 ZonedDateTime createdAt) implements OrderApprovalEvent {
 
-    @Override
-    public void fire() {
-        orderRejectedEventDomainEventPublisher.publish(this);
-    }
 }

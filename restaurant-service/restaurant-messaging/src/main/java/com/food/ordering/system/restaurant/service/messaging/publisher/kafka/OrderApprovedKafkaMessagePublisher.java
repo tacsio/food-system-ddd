@@ -46,7 +46,7 @@ public class OrderApprovedKafkaMessagePublisher implements OrderApprovedMessageP
                     kafkaMessageHelper.getKafkaCallback(restaurantServiceConfigData
                                     .getRestaurantApprovalResponseTopicName(),
                             restaurantApprovalResponseAvroModel,
-                            orderId));
+                            orderId, null, null));
 
             log.info("RestaurantApprovalResponseAvroModel sent to kafka at: {}", System.nanoTime());
         } catch (Exception e) {

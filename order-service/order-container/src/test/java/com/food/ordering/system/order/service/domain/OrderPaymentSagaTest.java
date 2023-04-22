@@ -1,12 +1,16 @@
+package com.food.ordering.system.order.service.domain;
+
 import com.food.ordering.system.order.service.dataaccess.outbox.payment.entity.PaymentOutboxEntity;
 import com.food.ordering.system.order.service.dataaccess.outbox.payment.repository.PaymentOutboxJpaRepository;
-import com.food.ordering.system.order.service.domain.OrderPaymentSaga;
-import com.food.ordering.system.order.service.domain.OrderServiceApplication;
 import com.food.ordering.system.order.service.domain.dto.message.PaymentResponse;
 import com.food.ordering.system.saga.SagaStatus;
+import com.food.ordering.system.saga.order.SagaConstants;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.OptimisticLockingFailureException;
+import org.springframework.test.context.jdbc.Sql;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -16,10 +20,13 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+
 @Slf4j
 @SpringBootTest(classes = OrderServiceApplication.class)
 @Sql(value = {"classpath:sql/OrderPaymentSagaTestSetUp.sql"})
-@Sql(value = {"classpath:sql/OrderPaymentSagaTestCleanUp.sql"}, executionPhase = AFTER_TEST_METHOD)
+@Sql(value = {"classpath:sql/OrderPaymentSagaTestCleanUp.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 public class OrderPaymentSagaTest {
 
     @Autowired
@@ -89,7 +96,7 @@ public class OrderPaymentSagaTest {
 
     private void assertPaymentOutbox() {
         Optional<PaymentOutboxEntity> paymentOutboxEntity =
-                paymentOutboxJpaRepository.findByTypeAndSagaIdAndSagaStatusIn(ORDER_SAGA_NAME, SAGA_ID,
+                paymentOutboxJpaRepository.findByTypeAndSagaIdAndSagaStatusIn(SagaConstants.ORDER_SAGA_NAME, SAGA_ID,
                         List.of(SagaStatus.PROCESSING));
         assertTrue(paymentOutboxEntity.isPresent());
     }

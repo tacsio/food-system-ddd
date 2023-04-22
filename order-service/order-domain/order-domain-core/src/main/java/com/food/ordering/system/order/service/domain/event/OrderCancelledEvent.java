@@ -6,10 +6,5 @@ import com.food.ordering.system.order.service.domain.entity.Order;
 
 import java.time.ZonedDateTime;
 
-public record OrderCancelledEvent(Order order, ZonedDateTime createdAt,
-                                  DomainEventPublisher<OrderCancelledEvent> orderCancelledEventDomainEventPublisher) implements DomainEvent<Order> {
-    @Override
-    public void fire() {
-        orderCancelledEventDomainEventPublisher.publish(this);
-    }
+public record OrderCancelledEvent(Order order, ZonedDateTime createdAt) implements DomainEvent<Order> {
 }

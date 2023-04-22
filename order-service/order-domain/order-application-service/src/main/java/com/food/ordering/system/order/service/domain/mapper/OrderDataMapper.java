@@ -9,7 +9,11 @@ import com.food.ordering.system.order.service.domain.dto.track.TrackOrderRespons
 import com.food.ordering.system.order.service.domain.entity.Order;
 import com.food.ordering.system.order.service.domain.entity.Product;
 import com.food.ordering.system.order.service.domain.entity.Restaurant;
+import com.food.ordering.system.order.service.domain.event.OrderCancelledEvent;
 import com.food.ordering.system.order.service.domain.event.OrderCreatedEvent;
+import com.food.ordering.system.order.service.domain.event.OrderPaidEvent;
+import com.food.ordering.system.order.service.domain.outbox.model.approval.OrderApprovalEventPayload;
+import com.food.ordering.system.order.service.domain.outbox.model.approval.OrderApprovalEventProduct;
 import com.food.ordering.system.order.service.domain.outbox.model.payment.OrderPaymentEventPayload;
 import com.food.ordering.system.order.service.domain.valueobject.StreetAddress;
 import org.springframework.stereotype.Component;
@@ -88,6 +92,31 @@ public class OrderDataMapper {
                 .price(orderCreatedEvent.order().getPrice().amount())
                 .createdAt(orderCreatedEvent.createdAt())
                 .paymentOrderStatus(PaymentOrderStatus.PENDING.name())
+                .build();
+    }
+
+    public OrderApprovalEventPayload orderPaidEventToOrderApprovalEventPayload(OrderPaidEvent orderPaidEvent) {
+        return OrderApprovalEventPayload.builder()
+                .orderId(orderPaidEvent.order().getId().value().toString())
+                .restaurantId(orderPaidEvent.order().getRestaurantId().value().toString())
+                .restaurantOrderStatus(RestaurantOrderStatus.PAID.name())
+                .products(orderPaidEvent.order().getItems().stream().map(orderItem ->
+                        OrderApprovalEventProduct.builder()
+                                .id(orderItem.getProduct().getId().value().toString())
+                                .quantity(orderItem.getQuantity())
+                                .build()).collect(Collectors.toList()))
+                .price(orderPaidEvent.order().getPrice().amount())
+                .createdAt(orderPaidEvent.createdAt())
+                .build();
+    }
+
+    public OrderPaymentEventPayload orderCancelledEventToOrderPaymentEventPayload(OrderCancelledEvent orderCancelledEvent) {
+        return OrderPaymentEventPayload.builder()
+                .customerId(orderCancelledEvent.order().getCustomerId().value().toString())
+                .orderId(orderCancelledEvent.order().getId().value().toString())
+                .price(orderCancelledEvent.order().getPrice().amount())
+                .createdAt(orderCancelledEvent.createdAt())
+                .paymentOrderStatus(PaymentOrderStatus.CANCELLED.name())
                 .build();
     }
 }

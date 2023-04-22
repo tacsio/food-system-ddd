@@ -27,8 +27,7 @@ public class RestaurantDomainServiceImpl implements RestaurantDomainService {
             return new OrderApprovedEvent(restaurant.getOrderApproval(),
                     restaurant.getId(),
                     failureMessages,
-                    ZonedDateTime.now(DomainConstants.UTC),
-                    orderApprovedEventDomainEventPublisher);
+                    ZonedDateTime.now(DomainConstants.UTC));
         } else {
             log.info("Order is rejected for order id: {}", orderId);
             restaurant.constructOrderApproval(OrderApprovalStatus.REJECTED);
@@ -36,8 +35,7 @@ public class RestaurantDomainServiceImpl implements RestaurantDomainService {
             return new OrderRejectedEvent(restaurant.getOrderApproval(),
                     restaurant.getId(),
                     failureMessages,
-                    ZonedDateTime.now(DomainConstants.UTC),
-                    orderRejectedEventDomainEventPublisher);
+                    ZonedDateTime.now(DomainConstants.UTC));
         }
     }
 }
